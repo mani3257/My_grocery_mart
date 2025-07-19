@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f6f5f7;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+
+        .left-panel, .right-panel {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-panel {
+            background: #00b894;
+            color: white;
+            text-align: center;
+        }
+
+        .left-panel h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .left-panel p {
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .auth-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .auth-buttons button {
+            padding: 10px 20px;
+            width: 250px;
+            border-radius: 25px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            transition: 0.3s;
+            background: white;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .auth-buttons button:hover {
+            background: #f1f1f1;
+        }
+
+        .auth-buttons img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .right-panel {
+            background: #fff;
+        }
+
+        .right-panel h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .input-container {
+            width: 80%;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .input-container i {
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            color: #aaa;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px 12px 12px 35px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .login-btn {
+            width: 80%;
+            padding: 12px;
+            background: #00b894;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .login-btn:hover {
+            background: #019875;
+        }
+
+        .social-text {
+            margin-top: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons i {
+            margin: 0 10px;
+            cursor: pointer;
+            color: #555;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #00b894;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .account-option {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .account-option:hover {
+            background: #f0f0f0;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-panel, .right-panel {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-panel">
+        <h2>New here?</h2>
+        <p>Choose an account to sign up quickly!</p>
+
+        <div class="auth-buttons">
+            <button onclick="openModal('Google')">
+                <img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign up with Google
+            </button>
+            <button onclick="openModal('GitHub')">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png"/> Sign up with GitHub
+            </button>
+            <button onclick="openModal('LinkedIn')">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png"/> Sign up with LinkedIn
+            </button>
+        </div>
+
+        <p style="margin-top:20px;">Or</p>
+        <button class="signup-btn">Manual Sign Up</button>
+
+        <!-- Lottie Animation -->
+        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jcikwtux.json"  
+                        background="transparent"  
+                        speed="1"  
+                        style="width: 250px; height: 250px;"  
+                        loop  
+                        autoplay>
+        </lottie-player>
+    </div>
+
+    <div class="right-panel">
+        <h2>Sign in</h2>
+        <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username">
+        </div>
+        <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password">
+        </div>
+        <button class="login-btn">LOGIN</button>
+
+        <p class="social-text">Or Sign in with social platforms</p>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-google"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Account Selection -->
+<div class="modal" id="accountModal">
+    <div class="modal-content">
+        <h3 id="modalTitle">Select an Account</h3>
+        <div class="account-option">account1@example.com</div>
+        <div class="account-option">account2@example.com</div>
+        <div class="account-option">Use another account</div>
+    </div>
+</div>
+
+<script>
+    function openModal(service) {
+        document.getElementById('modalTitle').innerText = "Sign up with " + service;
+        document.getElementById('accountModal').style.display = 'flex';
+    }
+
+    document.querySelectorAll('.account-option').forEach(option => {
+        option.addEventListener('click', function() {
+            alert("Signed in as: " + this.innerText);
+            document.getElementById('accountModal').style.display = 'none';
+        });
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        let modal = document.getElementById('accountModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
