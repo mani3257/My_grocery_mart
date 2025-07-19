@@ -184,14 +184,14 @@
 
 <script>
     const firebaseConfig = {
-        apiKey: "AIzaSyDKD_iptf3h62xpKMTjrA3Ek6GCTbvA0bY",
-        authDomain: "login-page-6c561.firebaseapp.com",
-        projectId: "login-page-6c561",
-        storageBucket: "login-page-6c561.appspot.com",
-        messagingSenderId: "58419845725",
-        appId: "1:58419845725:web:75b5270035e364adcccbb4",
-        measurementId: "G-TGFV29G138"
-    };
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
+
 
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
