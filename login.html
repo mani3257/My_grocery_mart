@@ -2,288 +2,229 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login & Sign Up</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+    <title>Modern Login Page</title>
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #f6f5f7;
+            background: #f0f0f0;
         }
 
         .container {
             width: 100%;
             height: 100vh;
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .left-panel, .right-panel {
-            flex: 1;
-            padding: 60px 40px;
+        .login-box {
+            width: 800px;
+            height: 500px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .left {
+            width: 50%;
+            background: #00c6a7;
+            color: #fff;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .left-panel {
-            background: #00b894;
-            color: white;
             text-align: center;
         }
 
-        .left-panel h2 {
-            margin-bottom: 15px;
-            font-size: 28px;
-        }
-
-        .left-panel p {
-            font-size: 14px;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .auth-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .auth-buttons button {
-            padding: 10px 20px;
-            width: 250px;
-            border-radius: 25px;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-            transition: 0.3s;
-            background: white;
-            color: #333;
-            border: 1px solid #ccc;
-        }
-
-        .auth-buttons button:hover {
-            background: #f1f1f1;
-        }
-
-        .auth-buttons img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .right-panel {
-            background: #fff;
-        }
-
-        .right-panel h2 {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 28px;
-        }
-
-        .input-container {
-            width: 80%;
-            margin: 10px 0;
-            position: relative;
-        }
-
-        .input-container i {
-            position: absolute;
-            top: 12px;
-            left: 10px;
-            color: #aaa;
-        }
-
-        .input-container input {
-            width: 100%;
-            padding: 12px 12px 12px 35px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .login-btn {
-            width: 80%;
-            padding: 12px;
-            background: #00b894;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 14px;
-        }
-
-        .login-btn:hover {
-            background: #019875;
-        }
-
-        .social-text {
-            margin-top: 20px;
-            color: #999;
-            font-size: 14px;
-        }
-
-        .social-icons {
-            margin-top: 15px;
-        }
-
-        .social-icons i {
-            margin: 0 10px;
-            cursor: pointer;
-            color: #555;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .social-icons i:hover {
-            color: #00b894;
-        }
-
-        .modal {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #fff;
-            padding: 20px 30px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .modal-content h3 {
+        .left h2 {
             margin-bottom: 20px;
         }
 
-        .account-option {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: 0.2s;
+        .left p {
+            margin-bottom: 30px;
         }
 
-        .account-option:hover {
+        .left button {
+            padding: 10px 30px;
+            background: #fff;
+            color: #00c6a7;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .left button:hover {
             background: #f0f0f0;
         }
 
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        .right {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        @media(max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .left-panel, .right-panel {
-                padding: 30px 20px;
-            }
+        .right h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 15px 15px 15px 40px;
+            border: none;
+            background: #f2f2f2;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .input-field i {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            color: #aaa;
+        }
+
+        .right button {
+            padding: 12px 0;
+            background: #00c6a7;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .right button:hover {
+            background: #00a08c;
+        }
+
+        .social {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social i {
+            margin: 0 10px;
+            cursor: pointer;
+            color: #555;
+            font-size: 20px;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Firebase compat CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
 </head>
 <body>
 
 <div class="container">
-    <div class="left-panel">
-        <h2>New here?</h2>
-        <p>Choose an account to sign up quickly!</p>
-
-        <div class="auth-buttons">
-            <button onclick="openModal('Google')">
-                <img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign up with Google
-            </button>
-            <button onclick="openModal('GitHub')">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png"/> Sign up with GitHub
-            </button>
-            <button onclick="openModal('LinkedIn')">
-                <img src="https://img.icons8.com/color/48/000000/linkedin.png"/> Sign up with LinkedIn
-            </button>
+    <div class="login-box">
+        <div class="left">
+            <h2>New here?</h2>
+            <p>Create your account and start your journey with us.</p>
+            <button onclick="signup()">SIGN UP</button>
         </div>
 
-        <p style="margin-top:20px;">Or</p>
-        <button class="signup-btn">Manual Sign Up</button>
+        <div class="right">
+            <h2>Sign in</h2>
 
-        <!-- Lottie Animation -->
-        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jcikwtux.json"  
-                        background="transparent"  
-                        speed="1"  
-                        style="width: 250px; height: 250px;"  
-                        loop  
-                        autoplay>
-        </lottie-player>
-    </div>
+            <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="email" id="email" placeholder="Username">
+            </div>
 
-    <div class="right-panel">
-        <h2>Sign in</h2>
-        <div class="input-container">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username">
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+
+            <button onclick="login()">LOGIN</button>
+
+            <div id="error"></div>
+
+            <div class="social">
+                <p>Or sign in with social platforms</p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
         </div>
-        <div class="input-container">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password">
-        </div>
-        <button class="login-btn">LOGIN</button>
-
-        <p class="social-text">Or Sign in with social platforms</p>
-        <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-google"></i>
-            <i class="fab fa-linkedin-in"></i>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Account Selection -->
-<div class="modal" id="accountModal">
-    <div class="modal-content">
-        <h3 id="modalTitle">Select an Account</h3>
-        <div class="account-option">account1@example.com</div>
-        <div class="account-option">account2@example.com</div>
-        <div class="account-option">Use another account</div>
     </div>
 </div>
 
 <script>
-    function openModal(service) {
-        document.getElementById('modalTitle').innerText = "Sign up with " + service;
-        document.getElementById('accountModal').style.display = 'flex';
+    const firebaseConfig = {
+        apiKey: "AIzaSyDKD_iptf3h62xpKMTjrA3Ek6GCTbvA0bY",
+        authDomain: "login-page-6c561.firebaseapp.com",
+        projectId: "login-page-6c561",
+        storageBucket: "login-page-6c561.appspot.com",
+        messagingSenderId: "58419845725",
+        appId: "1:58419845725:web:75b5270035e364adcccbb4",
+        measurementId: "G-TGFV29G138"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function login() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                document.getElementById('error').innerText = error.message;
+            });
     }
 
-    document.querySelectorAll('.account-option').forEach(option => {
-        option.addEventListener('click', function() {
-            alert("Signed in as: " + this.innerText);
-            document.getElementById('accountModal').style.display = 'none';
-        });
-    });
+    function signup() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        let modal = document.getElementById('accountModal');
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (!email || !password) {
+            document.getElementById('error').innerText = "Please enter email and password for signup.";
+            return;
         }
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                document.getElementById('error').innerText = error.message;
+            });
     }
 </script>
 
